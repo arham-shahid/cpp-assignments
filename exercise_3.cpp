@@ -4,6 +4,7 @@ int main()
 {
     double sales, companySales, salesPercentage;
     companySales = 0;
+
     cout << "Enter the total amount of sales you made this year: ";
     cin >> sales;
 
