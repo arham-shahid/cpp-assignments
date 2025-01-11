@@ -1,18 +1,34 @@
 #include <iostream>
 using namespace std;
+
 int pow(int, int); // Power function prototype
 int getCount(int); // Count function protoype
+int isArmstrong(int);
+
 int main()
 {
-    int num;       // Any value that user inputs
-    int digit = 0; // Breakdown of value into single digits
-    int totalSum = 0;   // Calculation of sum of digits raised to power equal to count
-
+    int num; // Any value that user inputs
+    
     cout << "Enter any number to check if it is an Armstrong number: ";
     cin >> num;
 
-    int copyNum = num;         // Copy of input to be compared with sum at the end
+    // Checking if sum is same as num
+    if (isArmstrong(num) == num)
+    {
+        cout << "Entered number is an Armstrong number \n";
+    }
+    else
+    {
+        cout << "Entered number is not an Armstrong number \n";
+    }
+    return 0;
+}
+
+    int isArmstrong(int num)
+{       
+    int digit = 0; // Breakdown of value into single digits
     int count = getCount(num); // Number of digits in user's input
+    int totalSum = 0;// Calculation of sum of digits raised to power equal to count
 
     // Calculating sum
     while (num != 0)
@@ -21,18 +37,8 @@ int main()
         num = num / 10;
         totalSum = totalSum + pow(digit, count);
     }
+    return totalSum;
 
-    // Checking if sum is same as num
-    if (copyNum == totalSum)
-    {
-        cout << "Entered number is an Armstrong number \n";
-    }
-    else
-    {
-        cout << "Entered number is not an Armstrong number \n";
-    }
-
-    return 0;
 }
 
 // Function to determuine the number of digits in user's input
